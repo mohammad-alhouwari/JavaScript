@@ -210,9 +210,7 @@ function largerNubmer(x,z) {
         console.log(x)
     } else {
         console.log(z)
-
-    }
-    
+    } 
 }
 largerNubmer(5,6)
 largerNubmer(5,3)
@@ -273,9 +271,19 @@ Ex: shorterString("air","tr","car","github","by")
 => by
 
 */
-function shorterString(params) {
-    
-}
+function shorterString(...X) {
+  var min =X[0];
+  for (let i = 0; i < X.length; i++) {
+    if (X[i].length < min.length) {
+      min = X[i]
+    }
+  }
+  console.log(min)
+}  
+shorterString("air","school","car","by","github");
+shorterString("air","tr","car","github","by");
+shorterString("air","tr","by","car","github");
+
 /*
 14
 Write a function called longerString
@@ -290,7 +298,17 @@ Ex: longerString("air","schoo","car","github")
 
 try all the cases (change the order of the longestString)
 */
-
+function longerString(...y) {
+  var max =y[0];
+  for (let i = 0; i < y.length; i++) {
+    if (y[i].length > max.length) {
+      max = y[i]
+    }
+  }
+  console.log(max)
+}  
+longerString("air","school","car","github")
+longerString("air","schoo","car","github")  
 /*
 15
 Write a function called isEven
@@ -304,8 +322,16 @@ Ex: isEven(2)
 => true
 
 */
-
-
+function isEven(x) {
+ 
+    if (x %2 == 0) {
+        console.log(true) 
+    } else {
+      console.log(false) 
+    }
+}
+isEven(1);
+isEven(2);
 /*
 16
 Write a function called isOdd
@@ -319,7 +345,16 @@ Ex: isOdd(5)
 => true
 
 */
-
+function isEven(x) {
+ 
+  if (x %2 == 0) {
+      console.log(false) 
+  } else {
+    console.log(true) 
+  }
+}
+isEven(4);
+isEven(5);
 
 /*
 17
@@ -333,8 +368,17 @@ Ex: positive(-5)
 => 5
 
 */
-
-
+function positive(x) {
+ 
+  if (x >= 0) {
+      console.log(x) 
+  } else {
+    x = x * -1;
+    console.log(x) 
+  }
+}
+positive(4);
+positive(-5);
 /*
 18
 Write a function called fullName
@@ -347,8 +391,11 @@ Ex: fullName("Adam","McCallen")
 Ex: fullName("Alex", "Mercer")
 => "Alex Mercer"
 */
-
-
+function fullName(firstName,lastName) {
+  console.log(firstName+" "+lastName)
+}
+fullName("Adam","McCallen")
+fullName("Alex", "Mercer")
 /*
 19
 Write a function called average
@@ -362,13 +409,17 @@ Ex: average(5,7,9,3,5)
 => 5.8
 
 */
-
-
+function average(a,b,c,d,e) {
+  avg =(a+b+c+d+e)/(5)
+  console.log(avg)
+}
+average(1,2,3,4,5);
+average(5,7,9,3,5);
 /*
 20
-Write a function called randomNumber
-that didnt takes any parameter
-and returns a random number between 0-1
+  Write a function called randomNumber
+  that didnt takes any parameter
+  and returns a random number between 0-1
 ** hint: you can seacrh using MDN
 
 Ex: randomNumber()
@@ -378,7 +429,11 @@ Ex: randomNumber()
 => 0.475
 
 */
-
+function randomNumber() {
+  console.log(Math.random());
+}
+randomNumber()
+randomNumber()
 /*
 21
 Write a function called randomBetweenNumbers
@@ -393,7 +448,11 @@ Ex: randomBetweenNumbers(3,100)
 => 23
 
 */
-
+function randomBetweenNumbers(x,y) {
+  console.log(Math.floor(Math.random() * y) + x);
+}
+randomBetweenNumbers(1,8)
+randomBetweenNumbers(3,100)
 
 /*
 22
@@ -415,7 +474,22 @@ Ex: scoreInUniversty(3)
 Ex: scoreInUniversty(71)
 => "C"
 */
-
+function scoreInUniversty(G) {
+  if (G>=95){
+    console.log("A")
+}else if(G>=85){
+  console.log("B")
+}else if(G>=70){
+  console.log("C")
+}else if(G>=50){
+  console.log("D")
+}else {
+  console.log("F")
+}
+}
+scoreInUniversty(96);
+scoreInUniversty(3);
+scoreInUniversty(71);
 
 /*
 23
@@ -434,8 +508,14 @@ Ex: counter()
 => 3
 
 */
-
-
+var NNN=0;
+function counter() {
+  ++NNN
+  console.log(NNN)
+}
+counter();
+counter();
+counter();
 /*
 24
 Write a function called resetCounter
@@ -467,3 +547,13 @@ Ex: resetCounter()
 Ex: counter()
 => 1
 */
+
+function resetCounter() {
+  console.log(NNN+" and the counter reset now")
+  NNN=0;
+}
+resetCounter();
+counter();
+counter();
+resetCounter();
+counter();
