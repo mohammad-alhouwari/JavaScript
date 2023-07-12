@@ -42,4 +42,9 @@ console.log(string);
  Check if a string contains the letter “y”. Print “yes” if it does and “no” if it does not.
 let x = "don’t know why"
 */
-
+let x = "don’t know why"
+    if (x.includes("y")) {
+        console.log("yes")
+    }else{
+        console.log("no")
+    }
