@@ -136,7 +136,9 @@ else
 
  /* 5.Write the if statement to display "Hello World" if x is greater than y, otherwise alert "Goodbye".*/
 /******* Start Your Code *********/
-  
+var x = 5;
+var y = 2;
+
 if (x >y) {
  alert("Hello World");
 } 
