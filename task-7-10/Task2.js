@@ -8,15 +8,15 @@ equal or between 90 and 100 ===> A
 */
 G = window.prompt("input your grade", "0 ~ 100");
 
-if (G<=100 && G>=90){
+if (G>=90){
     alert("A")
-}else if(G<=89 && G>=80){
+}else if(G>=80){
     alert("B")
-}else if(G<=79 && G>=70){
+}else if(G>=70){
     alert("C")
-}else if(G<=69 && G>=60){
+}else if(G>=60){
     alert("D")
-}else if(G<=59 && G>=50){
+}else if(G>=50){
     alert("E")
 }else {
     alert("Fail")
