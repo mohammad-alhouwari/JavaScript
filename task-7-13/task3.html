@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task3</title>
+</head>
+<body>
+    <form>
+        <select name = "dropdown" id="selectBox" onchange="flag()">
+           <option  value = "1" selected>Jordan</option>
+           <option value = "2" >Palestine</option>
+        </select>
+     </form>
+     <div id="div" style=" background-image: url(Flag_of_Jordan.svg.png); width: 500px; height: 400px; background-size: 500px 400px; background-position: center;"></div>
+     <script>
+        function flag() {
+            let div1 = document.getElementById("div");
+            var selectBox = document.getElementById("selectBox");
+             var selectBoxvalue = selectBox.options[selectBox.selectedIndex].value;
+            if (selectBoxvalue == 1) {
+                div1.style.backgroundImage="url(Flag_of_Jordan.svg.png)";
+            } else {
+                div1.style.backgroundImage="url(palestine.jpg)";
+            }
+        }
+     </script>
+</body>
+</html>

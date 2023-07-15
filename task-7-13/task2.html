@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task2</title>
+</head>
+<body>
+    <div onmouseover="mOver(this)" onmouseleave="mOut(this)" style="background-color: yellow; border: 1px black solid; font-weight: bold; text-align: center; width: 400px;height: 50px; padding-top: 20px ;">
+        Hello World !
+    </div>
+    <script>
+        function mOver(obj) {
+            obj.innerHTML = "Hello World !"
+        }
+
+        function mOut(obj) {
+            obj.innerHTML = "Can i help you ?"
+        }
+    </script>
+</body>
+</html>

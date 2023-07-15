@@ -271,7 +271,7 @@ Ex: shorterString("air","tr","car","github","by")
 => by
 
 */
-function shorterString(...X) {
+function shorterString(...X){
   var min =X[0];
   for (let i = 0; i < X.length; i++) {
     if (X[i].length < min.length) {

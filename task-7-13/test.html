@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    img
+    <h1 id="add" >first</h1>
+
+    <h1 id="add2">second</h1>
+
+    <h1 class="add3">third</h1>
+
+    <h1 id="add4">fourth</h1>
+
+    <h3 onclick="this.innerHTML='hello'">world</h3>
+
+    <button id="btn">click</button>
+
+    <h1 id="add">fifth</h1>
+
+
+
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="width:120px;height:20px;padding:40px;">
+        Mouse Over Me</div>
+
+
+
+    <script>
+        document.getElementById("add4").innerHTML = "forth id"
+
+        document.getElementsByTagName("h1")[1].innerHTML = "hello";
+
+        document.getElementsByClassName("add3")[0].innerHTML = 'Lorem ipsum1';
+
+        var parent = document.getElementById("add");
+
+        var newelement = document.createElement('p');
+
+        newelement.innerHTML = "new Element ";
+
+        parent.appendChild(newelement);
+
+        document.getElementById('btn').addEventListener('click', hello);
+
+        function hello() {
+            alert('hello world');
+        }
+
+        function mOver(obj) {
+            obj.innerHTML = "Thank You"
+        }
+
+        function mOut(obj) {
+            obj.innerHTML = "Mouse Over Me"
+        }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

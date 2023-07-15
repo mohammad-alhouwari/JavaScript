@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task4</title>
+</head>
+
+<body>
+    <form>
+        <ul style="list-style: none;">
+            <li>
+                <select onchange="font_family()" id="family" style="width: 150px;">
+                    <option value="1">Times New Roman</option>
+                    <option value="2">fantasy</option>
+                    <option value="3">Arial</option>
+                </select>
+                <select onchange="font_weight()" id="weight" style="width: 60px;">
+                    <option value="1" selected>10px</option>
+                    <option value="2">15px</option>
+                    <option value="3">20px</option>
+                    <option value="4">25px</option>
+                </select>
+                <input onclick="Italic_box()" type="checkbox" id="Italic" name="Italic" value="Italic">
+                <label for="vehicle1">Italic</label>
+                <input onclick="Bold_box()" type="checkbox" id="Bold" name="Bold" value="Bold">
+                <label for="vehicle2">Bold</label>
+                <input onclick="Underline_box()" type="checkbox" id="Underline" name="Underline" value="Underline">
+                <label for="vehicle3">Underline</label>
+            </li>
+            <br>
+            <li>
+                <textarea id="text" name="user_message" style="resize: none; width: 600px; height: 200px;"></textarea>
+            </li>
+        </ul>
+    </form>
+    <script>
+        var text = document.getElementById("text");
+        function font_family() {
+            let family = document.getElementById("family");
+            let family_value = family.options[family.selectedIndex].value;
+            if (family_value == 1) {
+                text.style.fontFamily = "Times New Roman', Times, serif;";
+            } else if (family_value == 2) {
+                text.style.fontFamily = "fantasy";
+            } else {
+                text.style.fontFamily = "Arial, Helvetica, sans-serif";
+            }
+        }
+        function font_weight() {
+            let weight = document.getElementById("weight");
+            let weight_value = weight.options[weight.selectedIndex].value;
+            if (weight_value == 1) {
+                text.style.fontSize = "10px";
+            } else if (weight_value == 2) {
+                text.style.fontSize = "15px";
+            } else if (weight_value == 3) {
+                text.style.fontSize = "20px";
+            } else {
+                text.style.fontSize = "25px";
+            }
+        }
+        function Italic_box() {
+            let Italic = document.getElementById("Italic")
+            if (Italic.checked == true) {
+                text.style.fontStyle = "italic";
+            } else {
+                text.style.fontStyle = "normal";
+            }
+        }
+        function Bold_box() {
+            let Bold = document.getElementById("Bold")
+
+            if (Bold.checked == true) {
+                text.style.fontWeight = "bold";
+            } else {
+                text.style.fontWeight = "lighter";
+            }
+        }
+        function Underline_box() {
+            let Underline = document.getElementById("Underline")
+            if (Underline.checked == true) {
+                text.style.textDecoration = "underline";
+            } else {
+                text.style.textDecoration = "none";
+            }
+        }
+    </script>
+</body>
+</html>
