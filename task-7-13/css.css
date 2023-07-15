@@ -1,0 +1,14 @@
+div{
+
+    border: 1px black solid;
+    text-align: center;
+    width: 200px;
+    height: 300px;
+    font-size: x-large;
+    display: inline-block;
+    margin: 20px; ;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: lighter;
+
+}
