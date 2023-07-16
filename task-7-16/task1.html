@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input onchange="coler_on()" type="color" id="coler_in">
+    <script>
+
+        function coler_on() {
+            let colorV = document.getElementById("coler_in").value;
+            sessionStorage.setItem(`col`, `${colorV}`);
+            let  colors = sessionStorage.getItem(`col`);
+            document.body.style.backgroundColor = colors;
+        }
+        if (sessionStorage.length > 0) {
+            let colorV = document.getElementById("coler_in").value;
+            let inputtt =document.getElementById("coler_in");
+            let  colors = sessionStorage.getItem(`col`);
+            // inputtt.value = colorV;
+            document.body.style.backgroundColor = colors;
+
+        }
+        
+    </script>
+</body>
+
+</html>
