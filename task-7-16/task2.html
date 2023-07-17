@@ -1,65 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-<form onchange="forrrom()" id="formm">
-    <label for="name">name:</label>
-    <input type="text" id="name"><br>
-    <label for="age">age:</label>
-    <input type="text" id="age"><br>
-    <label for="gender">gender:</label>
-    <input type="text" id="gender"><br>
-    <label for="date">birth date:</label>
-    <input type="date" id="date"><br>
-    <label for="image">your image:</label>
-    <input type="text" id="image"><br>
-    <hr>
-    <label for="description">description:</label>
-    <input type="text" id="description"><br>
-    <label for="major">major & university</label>
-    <input type="text" id="major"><br>
-    <label>programming language:</label>
-    <input type="checkbox" id="html" class="checkbox0">
-    <label for="html">html</label>
-    <input type="checkbox" id="css" class="checkbox0">
-    <label for="css">css</label>
-    <input type="checkbox" id="js" class="checkbox0">
-    <label for="js">js</label>
-    <hr>
-    <label for="sibling">sibling number:</label><br>
-    <input type="text" id="sibling"><br>
-    <label for="des_sib">description of siblings:</label><br>
-    <input type="text" id="des_sib"><br>
-    <input type="submit">
-</form>
-<script>
-    let form =document.getElementById("formm")
-    let input =form.getElementsByTagName("input")
-     
+    <form onchange="forrrom()" id="formm">
+        <label for="name">name:</label>
+        <input type="text" id="name"><br>
+        <label for="age">age:</label>
+        <input type="text" id="age"><br>
+        <label for="gender">gender:</label>
+        <input type="text" id="gender"><br>
+        <label for="date">birth date:</label>
+        <input type="date" id="date"><br>
+        <label for="image">your image:</label>
+        <input type="text" id="image"><br>
+        <hr>
+        <label for="description">description:</label>
+        <input type="text" id="description"><br>
+        <label for="major">major & university</label>
+        <input type="text" id="major"><br>
+        <label>programming language:</label>
+        <input type="checkbox" id="html" class="checkbox0">
+        <label for="html">html</label>
+        <input type="checkbox" id="css" class="checkbox0">
+        <label for="css">css</label>
+        <input type="checkbox" id="js" class="checkbox0">
+        <label for="js">js</label>
+        <hr>
+        <label for="sibling">sibling number:</label><br>
+        <input type="text" id="sibling"><br>
+        <label for="des_sib">description of siblings:</label><br>
+        <input type="text" id="des_sib"><br>
+        <input type="submit">
+    </form>
+    <script>
+        let form = document.getElementById("formm")
+        let input = form.getElementsByTagName("input")
+        let checkbox00 = document.getElementsByClassName("checkbox0")
+        console.log(checkbox00)
+
+        if (localStorage.length > 0) {
+            for (let j = 0; j < input.length - 1; j++) {
+                let x = localStorage.getItem(`${input[j].id}`)
+                input[j].value = x
+            }
+            for (let m = 0; m < checkbox00.length; m++) {
+                let yy = localStorage.getItem(`${checkbox00[m].id}`)
+                    if (yy == `true`) {
+                        checkbox00[m].checked = "true"
+                    } else {
+                        checkbox00[m].removeAttribute('checked');
+                    }
+                }
+
+        }
+
+        function forrrom() {
+            for (let i = 0; i < input.length; i++) {
+                localStorage.setItem(`${input[i].id}`, `${input[i].value}`)
+            }
+            for (let k = 0; k < checkbox00.length; k++) {
+                if (checkbox00[k].checked) {
+                    localStorage.setItem(`${checkbox00[k].id}`, `true`)
+                } else {
+                    localStorage.setItem(`${checkbox00[k].id}`, `false`)
+                }
+            }
+
+        }
 
 
-    if (localStorage.length > 0) {
-        for (let j = 0; j < input.length-1; j++) {
-    let x = localStorage.getItem(`${input[j].id}`)        
-    input[j].value = x
-    }
-    }
-
-    function forrrom() {
-     for (let i = 0; i < input.length; i++) {
-    localStorage.setItem(`${input[i].id}`,`${input[i].value}`)        
-    }
-    
-    }
 
 
-
-
-
-</script>
+    </script>
 </body>
+
 </html>
