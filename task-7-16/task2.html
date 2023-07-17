@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="">
+<form onchange="forrrom()" id="formm">
     <label for="name">name:</label>
     <input type="text" id="name"><br>
     <label for="age">age:</label>
@@ -23,11 +23,11 @@
     <label for="major">major & university</label>
     <input type="text" id="major"><br>
     <label>programming language:</label>
-    <input type="checkbox" id="html">
+    <input type="checkbox" id="html" class="checkbox0">
     <label for="html">html</label>
-    <input type="checkbox" id="css">
+    <input type="checkbox" id="css" class="checkbox0">
     <label for="css">css</label>
-    <input type="checkbox" id="js">
+    <input type="checkbox" id="js" class="checkbox0">
     <label for="js">js</label>
     <hr>
     <label for="sibling">sibling number:</label><br>
@@ -37,8 +37,24 @@
     <input type="submit">
 </form>
 <script>
-    
+    let form =document.getElementById("formm")
+    let input =form.getElementsByTagName("input")
+     
 
+
+    if (localStorage.length > 0) {
+        for (let j = 0; j < input.length-1; j++) {
+    let x = localStorage.getItem(`${input[j].id}`)        
+    input[j].value = x
+    }
+    }
+
+    function forrrom() {
+     for (let i = 0; i < input.length; i++) {
+    localStorage.setItem(`${input[i].id}`,`${input[i].value}`)        
+    }
+    
+    }
 
 
 
