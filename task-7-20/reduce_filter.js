@@ -1,49 +1,60 @@
-console.log("Here is : ", "Reduce & Filter");
+console.log('Here is : ', 'Reduce & Filter') 
 
-//Using Reduce 1 -5
-var persons = [
-  { name: { first: "John", last: "Hob" }, age: 35 },
-  { name: { first: "Alex", last: "Mercer" }, age: 25 },
-  { name: { first: "Alice", last: "Zaheer" }, age: 24 },
-  { name: { first: "Zues", last: "Odin" }, age: 55 },
-  { name: { first: "Soso", last: "Al-Amora" }, age: 67 },
-];
+// Using Reduce 1 -5
+  var persons = [
+    { name: { first: 'John', last: 'Hob' }, age: 35 },
+    { name: { first: 'Alex', last: 'Mercer' }, age: 25 },
+    { name: { first: 'Alice', last: 'Zaheer' }, age: 24 },
+    { name: { first: 'Zues', last: 'Odin' }, age: 55 },
+    { name: { first: 'Soso', last: 'Al-Amora' }, age: 67 }
+  ];
 
-/*
-1
-Using the varabile persons
-Create a function called avgAge
-that accept an array
-and return average age of this array
 
-Ex: avgAge(persons) => 41.2
-*/
-// reduceee=[]
-let persons1 =
-  persons.reduce(function (acc, cu) {
-    return acc + cu.age;
-  }, 0) / persons.length;
+  
+  
+  
+  
+  /*
+  1
+  Using the varabile persons
+  Create a function called avgAge
+  that accept an array
+  and return average age of this array
+  
+  Ex: avgAge(persons) => 41.2
+  */
+  console.log("***********************Exercise 1 ***********************")
 
-console.log(`avgAge(persons) =>${persons1}`);
+ function avgAge(a){
+   let age = persons.map((persons)=>persons.age).reduce((acu,cur)=>acu+cur)
+   console.log(age/persons.length);
+  }
+  avgAge(persons)
+  
+  // let avgAge = persons.reduce(function(acc,cur){
+  //   return acc+cur/persons.length
+  // })
+  // console.log(avgAge);
+  
+  
+  /*
+  2
+  Using the varabile persons
+  Create a function called longestName
+  that accept an array
+  and return the longerst full name
+  
+  Ex: longestName(persons) => 'Soso Al-Amora'
+  */
+ console.log("***********************Exercise 2 ***********************")
 
-/*
-2
-Using the varabile persons
-Create a function called longestName
-that accept an array
-and return the longerst full name
-
-Ex: longestName(persons) => 'Soso Al-Amora'
-*/
-function longestname(p) {
-  let aa = p.reduce((acc, cur) => {
-    let a = (cur.name.first + cur.name.last).length;
-    let b = (acc.name.first + acc.name.last).length;
-    return b > a ? acc : cur;
-  });
-  console.log(`longestName(persons) => '${aa.name.first} ${aa.name.last}'`);
-}
-longestname(persons);
+ function longestNmae(a){
+   let long = persons.map((persons)=>persons.name)
+   let long1 = long.map((long)=>long.first + ' ' + long.last)
+   let longest = long1.reduce((acc,cur)=>acc.length > cur.length ? acc : cur)
+   console.log(longest);
+ }
+ longestNmae(persons)
 
 /*
 3
@@ -53,33 +64,31 @@ and return max number
 
 Ex: maxNumber([1,2,4,9]) => 9
 */
-function maxNumber(e) {
-  let maxNumber1 = e.reduce(function (acc, cu) {
-    return cu > acc ? cu : acc;
-  });
-  return maxNumber1;
+console.log("***********************Exercise 3 ***********************")
+
+let number = [1,2,4,9];
+function maxNumber(n){
+let max = number.reduce((acc,cur)=>acc > cur ? acc : cur)
+console.log(max);
 }
-console.log(`maxNumber([1,2,4,9]) =>${maxNumber([1, 2, 4, 9])}`);
+maxNumber(number);
+maxNumber([1,2,4,9])
+
 /*
-4\
+4
 Create a function called repeatChar
 that accept a string and char
 and return number times that this char repeat inside the string
 
 Ex: repeatChar("hello world",w) => 1
 */
-function repeatChar(word,char) {
-  let count = 0;
-  let repeatChar1 = word.split("").reduce(function (_acc, cu) {
-    if (cu.includes(char)) {
-      console.log(cu);
-      count += 1;
-    }
-    return `the count is  ${count}`;
-  }, "");
-  return repeatChar1;
+console.log("***********************Exercise 4 ***********************")
+
+let repeatChar = (string,char)=>{
+  return string.split("").filter((ele)=>ele === char).length
 }
 console.log(repeatChar("hello world","w"));
+
 /*
 5
 Create a function called usAndNumberBeetweenUs
@@ -88,23 +97,18 @@ and return array of these two numbers and the numbers between them
 
 Ex: usAndNumberBeetweenUs(2,5) => [2,3,4,5]
 */
-function usAndNumberBeetweenUs(num1 = 2, num2 = 5) {
-  let arr = [num1, num2];
-  arr.length = num2 - num1 - 1;
-  let arr2 = arr.map(function (ele, index, arr) {
-    if (index == arr.length) {
-      arr = arr.splice(index, 1);
-      console.log(arr);
-    } else {
-      arr = arr.splice(index + 1, 0, ele + 1);
-    }
-    return arr;
-  });
+console.log("***********************Exercise 5 ***********************")
 
-  return arr;
+
+function usAndNumberBeetweenUs(x, y) {
+  let n = [];
+  for (let index = x; index <= y; index++) {
+    n.push(index);
+  }
+  console.log(n);
 }
+usAndNumberBeetweenUs(2, 5);
 
-console.log(usAndNumberBeetweenUs(2, 5));
 
 //Filter 6 - 11
 /*
@@ -115,13 +119,15 @@ and return an array of even number only
 
 Ex: evenOnly([1,8,6,4]) => [8,6,4]
 */
-function evenOnly(arr) {
-  let evenOnly1 = arr.filter(function (el) {
-    return el % 2 == 0;
-  });
-  return evenOnly1;
+console.log("***********************Exercise 6 ***********************")
+
+function evenOnly(arr){
+  let arrr = arr.filter(function(ele){
+    return ele %2 == 0
+  })
+  console.log(arrr);
 }
-console.log(evenOnly([1, 8, 6, 4]));
+evenOnly([1,8,6,4])
 /*
 7
 Create a function called multiFour
@@ -130,13 +136,15 @@ and return an array of these number that is a mutiply by 4
 
 Ex: multiFour([1,8,6,4]) => [8,4]
 */
-function multiFour(arr) {
-  let multiFour1 = arr.filter(function (el) {
-    return el % 4 == 0;
-  });
-  return multiFour1;
+console.log("***********************Exercise 7 ***********************")
+
+function multiFour(arr){
+  let arrr = arr.filter(function(ele){
+    return ele%4 == 0
+  })
+  console.log(arrr);
 }
-console.log(multiFour([1, 8, 6, 4]));
+multiFour([1,8,6,4])
 /*
 8
 **this question not that easy mybe you will need to use two function inside each other
@@ -148,13 +156,16 @@ and return an array of these string that contain this char
 Ex: containChar(["hello","world"],w) => ["world"]
 Ex: containChar(["hello","world"],l) => ["hello","world"]
 */
-function containChar(arr, char) {
-  let containChar1 = arr.filter(function (ele) {
-    return ele.includes(char);
-  });
-  return containChar1;
+console.log("***********************Exercise 8 ***********************")
+let contain =[]
+function containChar(arr,str){
+  let newarr = arr.map(function(ele){
+    return ele.includes(str) ? contain.push(ele) : console.log("dont contain");
+  })
+  console.log(contain);
 }
-console.log(containChar(["hello", "world"], "l"));
+// containChar(["hello","world"],"w")
+containChar(["hello","world"],"l")
 /*
 9
 Create a function called evenIndexOddLength
@@ -162,17 +173,15 @@ that accept an array of strings
 and return an array that have the string with odd length in even index
 
 var strings= ["alex","mercer","madrasa","rashed2","emad","hala"]
-Ex: evenIndexOddLength(strings) => ["madrasa"]
+Ex: evenIndexOddLength(strings) => ["madrasa"] 
 */
-function evenIndexOddLength(arr) {
-  let evenIndexOddLength1 = arr.filter(function (ele, index) {
-    return ele.length % 2 != 0 && index % 2 == 0;
-  });
-  return evenIndexOddLength1;
+console.log("***********************Exercise 9 ***********************")
+
+strings= ["alex","mercer","madrasa","rashed2","emad","hala"]
+let evenIndexOddLength =(strings)=>{
+  return strings.filter((ele,ind)=>ele.length%2 != 0 && ind%2 == 0) 
 }
-console.log(
-  evenIndexOddLength(["alex", "mercer", "madrasa", "rashed2", "emad", "hala"])
-);
+console.log(evenIndexOddLength(strings)); 
 /*
 10
 Using the varabile persons
@@ -182,22 +191,16 @@ and return the person that have age older than this number
 
 Ex: olderThan(persons,56) => [{ name: { first: 'Soso', last: 'Al-Amora' }, age: 67 }]
 */
-var persons = [
-  { name: { first: "John", last: "Hob" }, age: 35 },
-  { name: { first: "Alex", last: "Mercer" }, age: 25 },
-  { name: { first: "Alice", last: "Zaheer" }, age: 24 },
-  { name: { first: "Zues", last: "Odin" }, age: 55 },
-  { name: { first: "Soso", last: "Al-Amora" }, age: 67 },
-];
-function olderThan(arr,num) {
- let olderThan1= arr.filter(function (el,index) {
-   if (el.age > num) {
-    return el
-  }
- })
- return olderThan1;
+// console.log('Here is : ', 'Reduce & Filter') 
+console.log("***********************Exercise 10 ***********************")
+
+function olderThan(persons,age){
+let details = persons.filter(function(persons){
+  return persons.age >age
+})
+console.log(details);
 }
-console.log(olderThan(persons,56));
+olderThan(persons,56)
 /*
 11
 Create a function called shorterThan
@@ -207,12 +210,14 @@ and return the shorter string than the number
 var strings= ["alex","mercer","madrasa","rashed2","emad","hala"]
 Ex: shorterThan(strings,5) => ["alex","emad","hala"]
 */
-function shorterThan(arr=[],num=5) {
-  let shorterThan1=arr.filter(function (ele) {
-   return ele.length < num
-  })
-  return shorterThan1;
+console.log("***********************Exercise 11 ***********************")
+
+let array11 = ["alex","mercer","madrasa","rashed2","emad","hala"]
+function shorterThan(strings,number){
+let arr11 = strings.filter(function(ele){
+  return ele.length < number
+})
+console.log(arr11);
 }
-var strings= ["alex","mercer","madrasa","rashed2","emad","hala"]
-console.log(shorterThan(strings, 5));
+shorterThan(array11,5)
 // if you finish the exercises review the material of the week and help your classmate
