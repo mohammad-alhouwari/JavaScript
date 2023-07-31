@@ -2,8 +2,8 @@
 
 // Excersice 1: Write a JavaScript program to compare two objects to determine if the first one contains equivalent property values to the second one. 
 let obj1 = {
-    name: "ahmad",
-    age: 23,
+    name: "mohammad",
+    age: 26,
     degree: "good",
   };
   
